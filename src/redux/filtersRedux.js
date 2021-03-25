@@ -11,12 +11,14 @@ const createActionName = name => `app/${reducerName}/${name}`;
 // action types
 export const CHANGE_PHRASE = createActionName('CHANGE_PHRASE');
 export const CHANGE_DURATION = createActionName('CHANGE_DURATION');
-export const CHANGE_TAGS = createActionName('CHANGE_TAGS');
+export const ADD_TAGS = createActionName('ADD_TAGS');
+export const REMOVE_TAGS = createActionName('REMOVE_TAGS');
 
 // action creators
 export const changeSearchPhrase = payload => ({ payload, type: CHANGE_PHRASE });
 export const changeDuration = payload => ({ payload, type: CHANGE_DURATION });
-export const changeTags = payload => ({ payload, type: CHANGE_TAGS });
+export const addTags = payload => ({ payload, type: ADD_TAGS });
+export const removeTags = payload => ({ payload, type: REMOVE_TAGS });
 
 // reducer
 export default function reducer(statePart = [], action = {}) {
@@ -31,10 +33,15 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         duration: action.payload,
       };
-    case CHANGE_TAGS:
+    case ADD_TAGS:
       return {
         ...statePart,
-        tags: action.payload,
+        tags: [...statePart.tags, action.payload],
+      };
+    case REMOVE_TAGS:
+      return {
+        ...statePart,
+        tags: statePart.tags.filter((tag) => tag != action.payload),
       };
     default:
       return statePart;
