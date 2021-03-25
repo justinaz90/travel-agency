@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TripListOptions.scss';
-
 import {Row, Col} from 'react-flexbox-grid';
 
 class TripListOptions extends React.Component {
@@ -16,11 +15,14 @@ class TripListOptions extends React.Component {
   }
 
   handleDuration(type, value){
-    this.props.filters.duration[type] = parseInt(value);
-    this.props.changeDuration(this.props.filters.duration);
     console.log('Changing duration', type, value);
-    // TODO - use action dispatcher from props
+    if(type === 'from'){
+      this.props.changeDurationFrom(value);
+    } else {
+      this.props.changeDurationTo(value);
+    }
   }
+
 
   handleSearch(phrase){
     this.props.changeSearchPhrase(phrase);
@@ -75,7 +77,8 @@ TripListOptions.propTypes = {
   tags: PropTypes.object,
   filters: PropTypes.object,
   changeSearchPhrase: PropTypes.func,
-  changeDuration: PropTypes.func,
+  changeDurationFrom: PropTypes.func,
+  changeDurationTo: PropTypes.func,
   addTags: PropTypes.func,
   removeTags: PropTypes.func,
 };
