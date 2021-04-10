@@ -91,6 +91,7 @@ for(let type in optionTypes){
 
     /* type-specific tests */
     switch (type) {
+
       case 'dropdown': {
         /* tests for dropdown */
         it('contains select and options', () => {
@@ -217,7 +218,5 @@ for(let type in optionTypes){
         break;
       }
     }
-
-
   });
 }
