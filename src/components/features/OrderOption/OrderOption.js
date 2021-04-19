@@ -23,6 +23,9 @@ const OrderOption = ({name, type, id, setOrderOption, ...otherProps }) => {
   if(!OptionComponent){
     return null;
   } else {
+    if(type == 'date') {
+      otherProps.currentValue = otherProps.currentValue ? new Date(otherProps.currentValue) : new Date();
+    }
     return (
       <div className={styles.component}>
         <h3 className={styles.title}>{name}</h3>

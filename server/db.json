@@ -139,6 +139,22 @@
       "countryCode": "TLS",
       "tripDuration": 14,
       "id": 9
+    },
+    {
+      "car-rental": "suv",
+      "accommodation": "suite",
+      "features": [],
+      "adults": 1,
+      "children": "1",
+      "name": "hg",
+      "contact": "yg",
+      "start-date": "2021-04-20T22:00:00.000Z",
+      "totalCost": "$45,029",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "countryCode": "TGO",
+      "tripDuration": 3,
+      "id": 10
     }
   ]
 }

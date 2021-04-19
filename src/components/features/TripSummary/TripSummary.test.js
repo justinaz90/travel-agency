@@ -5,21 +5,21 @@ import TripSummary from './TripSummary';
 describe('Component TripSummary', () => {
 
   it('should render without crashing', () => {
-    const component = shallow(<TripSummary id='abc' image='image.jpg' name='trip summary' cost='999' days={123} tags={['']}/>);
+    const component = shallow(<TripSummary id='abc' image='image.jpg' name='trip summary' cost='999' days={123}/>);
     expect(component).toBeTruthy();
     console.log(component.debug());
   });
 
   it('generates link to correct link address', () => {
     const expectedId = 'abc';
-    const component = shallow(<TripSummary id={expectedId} image='image.jpg' name='trip summary' cost='999' days={123} tags={['']}/>);
+    const component = shallow(<TripSummary id={expectedId} image='image.jpg' name='trip summary' cost='999' days={123}/>);
     expect(component.find('Link').prop('to')).toEqual('/trip/' + expectedId);
   });
 
   it('should render iamge with correct src and alt', () => {
     const expectedImage = 'image.jpg';
     const expectedName = 'trip summary';
-    const component = shallow(<TripSummary id='abc' image={expectedImage} name={expectedName} cost='999' days={123} tags={['']}/>);
+    const component = shallow(<TripSummary id='abc' image={expectedImage} name={expectedName} cost='999' days={123}/>);
     expect(component.find('img').prop('src')).toEqual(expectedImage);
     expect(component.find('img').prop('alt')).toEqual(expectedName);
   });
@@ -28,7 +28,7 @@ describe('Component TripSummary', () => {
     const expectedName = 'trip summary';
     const expectedCost = '999';
     const expectedDays = 123;
-    const component = shallow(<TripSummary id='abc' name={expectedName} cost={expectedCost} days={expectedDays} image='image.jpg' tags={['']}/>);
+    const component = shallow(<TripSummary id='abc' name={expectedName} cost={expectedCost} days={expectedDays} image='image.jpg'/>);
     expect(component.find('.title').text()).toEqual(expectedName);
     expect(component.find('span').at(0).text()).toEqual(expectedDays + ' days');
     expect(component.find('span').at(1).text()).toEqual('from ' + expectedCost);
